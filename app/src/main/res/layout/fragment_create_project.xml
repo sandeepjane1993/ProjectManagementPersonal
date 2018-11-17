@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+    <TextView
+        android:paddingTop="16dp"
+        android:background="#df7b8a"
+        android:text="Enter you project details  below"
+        android:textColor="#0f0f0f"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <EditText
+        android:id="@+id/et_ProjectName_PC"
+        android:hint="Project Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/et_ProjectStatus_PC"
+        android:hint="Project Status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/et_ProjectDesc_PC"
+        android:hint="Project Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/et_StartDate_PC"
+        android:hint="Start Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/et_EndDate_PC"
+        android:hint="End Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <Button
+        android:id="@+id/btn_createProject_PC"
+        android:textAllCaps="false"
+        android:text="Create Project"
+        android:textColor="#FCFCFC"
+        android:background="@drawable/button_curved_blue"
+        android:layout_gravity="center"
+        android:layout_width="140dp"
+        android:layout_height="40dp" />
+</LinearLayout>
