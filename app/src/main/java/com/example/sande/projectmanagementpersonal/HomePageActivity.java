@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIDFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment;
+
 public class HomePageActivity extends AppCompatActivity {
 
 
@@ -21,7 +24,11 @@ public class HomePageActivity extends AppCompatActivity {
                     //mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                   // mTextMessage.setText(R.string.title_dashboard);
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.container, new ViewTaskListByIDFragment()).
+                            addToBackStack(null)
+                            .commit();
                     return true;
                 case R.id.navigation_notifications:
                     //mTextMessage.setText(R.string.title_notifications);

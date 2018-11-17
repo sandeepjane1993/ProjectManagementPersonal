@@ -5,6 +5,8 @@ import com.example.sande.projectmanagementpersonal.pojo.LoginPOJO;
 import com.example.sande.projectmanagementpersonal.responses.ProjectCreateResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectListResponse;
 import com.example.sande.projectmanagementpersonal.responses.TaskListResponse;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIdPojo;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIdResponce;
 
 import java.util.List;
 
@@ -50,4 +52,11 @@ public interface ApiService {
     @GET("/aamir/pms/android-app/pms_create_task.php?")
     Observable<ProjectCreateResponse> createTask(@Query("project_id") String projectId,@Query("task_name") String name,@Query("task_status") String status,
                                                  @Query("task_desc")String desc,@Query("start_date") String start,@Query("end_date") String end);
+
+    @GET("/aamir/pms/android-app/pms_view_task.php?")
+    Call<ViewTaskListByIdResponce> get_View_task_list_by_id_response(@Query("user_id") String id);
+
+    @GET("/aamir/pms/android-app/pms_view_task_deatil.php?")
+    Call<ViewTaskDetailByIdPojo> get_View_task_detail_by_id_response(@Query("taskid") String taskid, @Query("project_id") String project_id);
+
 }

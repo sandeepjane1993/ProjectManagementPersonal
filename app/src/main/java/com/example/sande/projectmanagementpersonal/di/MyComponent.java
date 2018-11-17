@@ -7,6 +7,8 @@ import com.example.sande.projectmanagementpersonal.login.ForgotPasswordFragment;
 import com.example.sande.projectmanagementpersonal.project.ProjectUpdateFragment;
 import com.example.sande.projectmanagementpersonal.tasks.TaskCreateFragment;
 import com.example.sande.projectmanagementpersonal.tasks.TaskListFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIDFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment;
 
 import javax.inject.Singleton;
 
@@ -23,5 +25,6 @@ public interface MyComponent {
     void injectRetrofit(ProjectUpdateFragment fragment);
     void injectRetrofit(TaskListFragment fragment);
     void injectRetrofit(TaskCreateFragment fragment);
-
+    void injectRetrofit(ViewTaskListByIDFragment fragment);
+    void injectRetrofit(ViewTaskDetailByIDFragment fragment);
 }
