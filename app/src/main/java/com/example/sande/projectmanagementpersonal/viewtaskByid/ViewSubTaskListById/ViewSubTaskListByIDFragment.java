@@ -1,4 +1,4 @@
-package com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById;
+package com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskListById;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,9 +17,8 @@ import android.widget.Toast;
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.network.ApiService;
-import com.example.sande.projectmanagementpersonal.network.RetrofitInstance;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskDetailById.ViewSubTaskDetailByIDFragment;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIDFragment;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,36 +32,37 @@ import retrofit2.Retrofit;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ViewTaskListByIDFragment extends Fragment {
+public class ViewSubTaskListByIDFragment extends Fragment {
     @Inject
     SharedPreferences sharedPreferences;
     @Inject
     Retrofit retrofit;
-    List<ViewTaskListByIdPojo> mList;
+    List<ViewSubTaskListByIdPojo> mList;
     final static String user_id="15";
-    private static final String TAG = "ViewTaskListByIDFragmen";
+    private static final String TAG = "ViewSubTaskListByIDFrag";
     RecyclerView rv;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_view_task_list_by_id,container,false);
+        View view = inflater.inflate(R.layout.fragment_view_subtask_list_by_id,container,false);
         sharedPreferences = getActivity().getSharedPreferences("MyFile", MODE_PRIVATE);
         mList = new ArrayList<>();
-        rv=view.findViewById(R.id.rv_view_task_list_by_id);
+        rv=view.findViewById(R.id.rv_view_subtask_list_by_id);
         ApiService apiService = retrofit.create(ApiService.class);
-        Log.i(TAG, "onCreateView: "+sharedPreferences.getString("userId",null));
-        Call<ViewTaskListByIdResponce> call = apiService.get_View_task_list_by_id_response("15");
 
-        call.enqueue(new Callback<ViewTaskListByIdResponce>() {
+        Log.i(TAG, "onCreateView: "+sharedPreferences.getString("userId",null));
+        Call<ViewSubTaskListByIdResponce> call = apiService.get_View_Subtask_list_by_id_response("15",sharedPreferences.getString("taskid",null));
+
+        call.enqueue(new Callback<ViewSubTaskListByIdResponce>() {
             @Override
-            public void onResponse(Call<ViewTaskListByIdResponce> call, Response<ViewTaskListByIdResponce> response) {
+            public void onResponse(Call<ViewSubTaskListByIdResponce> call, Response<ViewSubTaskListByIdResponce> response) {
 
                 Log.i(TAG, "success");
 
-                ViewTaskListByIdResponce viewTaskListByIdResponce = response.body();
+                ViewSubTaskListByIdResponce viewTaskListByIdResponce = response.body();
 
-                if(viewTaskListByIdResponce.getViewTaskListByIdPojos()!=null) {
+                if(viewTaskListByIdResponce.getViewSubTaskListByIdPojos()!=null) {
                     Log.i(TAG, "onResponse: pass");
-                    mList = viewTaskListByIdResponce.getViewTaskListByIdPojos();
+                    mList = viewTaskListByIdResponce.getViewSubTaskListByIdPojos();
 
 //                tenantRVAdapter = new TenantRVAdapter(mList);
 //
@@ -70,13 +70,13 @@ public class ViewTaskListByIDFragment extends Fragment {
 //
 //                recyclerView.setAdapter(tenantRVAdapter);
 
-                    ViewTaskListByidAdapter adapter = new ViewTaskListByidAdapter(getActivity(), mList);
+                    ViewSubTaskListByidAdapter adapter = new ViewSubTaskListByidAdapter(getActivity(), mList);
                     //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayout.VERTICAL, false);
                     RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
                     rv.setLayoutManager(layoutManager);
                     rv.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
-                    adapter.setOnItemClickListener(new ViewTaskListByidAdapter.OnItemClickListener() {
+                    adapter.setOnItemClickListener(new ViewSubTaskListByidAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View v, int position) {
                             //
@@ -90,7 +90,7 @@ public class ViewTaskListByIDFragment extends Fragment {
 
                             getActivity().getSupportFragmentManager()
                                     .beginTransaction()
-                                    .replace(R.id.container, new ViewTaskDetailByIDFragment()).
+                                    .replace(R.id.container, new ViewSubTaskDetailByIDFragment()).
                                     addToBackStack(null)
                                     .commit();
                         }
@@ -99,7 +99,7 @@ public class ViewTaskListByIDFragment extends Fragment {
                 }
                 else {
                     mList=new ArrayList<>();
-                    ViewTaskListByidAdapter adapter = new ViewTaskListByidAdapter(getActivity(), mList);
+                    ViewSubTaskListByidAdapter adapter = new ViewSubTaskListByidAdapter(getActivity(), mList);
                     //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayout.VERTICAL, false);
                     RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
                     rv.setLayoutManager(layoutManager);
@@ -109,7 +109,7 @@ public class ViewTaskListByIDFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ViewTaskListByIdResponce> call, Throwable t) {
+            public void onFailure(Call<ViewSubTaskListByIdResponce> call, Throwable t) {
                 Toast.makeText(getActivity(), t.toString(), Toast.LENGTH_SHORT).show();
                 Log.i(TAG, String.valueOf(t));
             }

@@ -5,6 +5,8 @@ import com.example.sande.projectmanagementpersonal.pojo.LoginPOJO;
 import com.example.sande.projectmanagementpersonal.responses.ProjectCreateResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectListResponse;
 import com.example.sande.projectmanagementpersonal.responses.TaskListResponse;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskDetailById.ViewSubTaskDetailByIdPojo;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskListById.ViewSubTaskListByIdResponce;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIdPojo;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIdResponce;
 
@@ -58,5 +60,11 @@ public interface ApiService {
 
     @GET("/aamir/pms/android-app/pms_view_task_deatil.php?")
     Call<ViewTaskDetailByIdPojo> get_View_task_detail_by_id_response(@Query("taskid") String taskid, @Query("project_id") String project_id);
+
+    @GET("/aamir/pms/android-app/pms_view_subtask.php?")
+    Call<ViewSubTaskListByIdResponce> get_View_Subtask_list_by_id_response(@Query("user_id") String id,@Query("taskid") String taskid);
+
+    @GET("http://rjtmobile.com/aamir/pms/android-app/pms_view_sub_task_deatil.php?")
+    Call<ViewSubTaskDetailByIdPojo> get_View_Subtask_detail_by_id_response(@Query("taskid") String taskid,@Query("subtask_id") String subtask_id, @Query("project_id") String project_id);
 
 }

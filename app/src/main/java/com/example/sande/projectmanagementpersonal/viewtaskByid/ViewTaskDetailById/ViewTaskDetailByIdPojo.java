@@ -1,5 +1,4 @@
 package com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById;
-
 import com.google.gson.annotations.SerializedName;
 
 public class ViewTaskDetailByIdPojo {
@@ -17,14 +16,27 @@ public class ViewTaskDetailByIdPojo {
     String startdate;
     @SerializedName("endstart")
     String endstart;
-
+    String temp;
     @Override
     public String toString() {
+
+        if (taskstatus.equals("1")){
+            temp= "Start new project";
+
+        }
+        else if(taskstatus.equals("2")){
+            temp = "Not complete";
+
+        }
+        else if(taskstatus.equals("3")){
+            temp= "Completed";
+
+        }
         return
                 "taskid= " + taskid + '\n' +
                 "projectid= " + projectid + '\n' +
                 "taskname= " + taskname + '\n' +
-                "taskstatus= " + taskstatus + '\n' +
+                "taskstatus= " + temp + '\n' +
                 "taskdesc= " + taskdesc + '\n' +
                 "startdate= " + startdate + '\n' +
                 "endstart= " + endstart + '\n' ;
