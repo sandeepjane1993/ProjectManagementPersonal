@@ -60,6 +60,12 @@ public interface ApiService {
     Observable<ProjectCreateResponse> createTask(@Query("project_id") String projectId,@Query("task_name") String name,@Query("task_status") String status,
                                                  @Query("task_desc")String desc,@Query("start_date") String start,@Query("end_date") String end);
 
+    //http://rjtmobile.com/aamir/pms/android-app/pms_create_sub_task.php?project_id=27&task_id=1&sub_task_name=category screen image loading&sub_task_status=1&sub_task_desc=xyz&start_date=2018-04-03&end_date=2018-04-15
+    @GET("/aamir/pms/android-app/pms_create_sub_task.php?")
+    Observable<ProjectCreateResponse> createSubTask(@Query("project_id") String projectId,@Query("task_id") String taskId,@Query("sub_task_name") String name,
+                                                    @Query("sub_task_status")String status,@Query("sub_task_desc") String desc,
+                                                    @Query("start_date") String start,@Query("end_date") String end);
+
     @GET("/aamir/pms/android-app/pms_view_task.php?")
     Call<ViewTaskListByIdResponce> get_View_task_list_by_id_response(@Query("user_id") String id);
 
@@ -85,5 +91,6 @@ public interface ApiService {
                                               @Query("team_member_userid") String team_member_userid);
     @GET("/aamir/pms/android-app/pms_team_member_deatil.php?")
     Observable<EmployeeDetailPOJO> getEmployeeDetail(@Query("memberuserid") String memberuserid);
+
 
 }
