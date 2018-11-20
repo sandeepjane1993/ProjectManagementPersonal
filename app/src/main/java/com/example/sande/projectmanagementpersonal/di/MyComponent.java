@@ -5,6 +5,7 @@ import com.example.sande.projectmanagementpersonal.project.ProjectCreateFragment
 import com.example.sande.projectmanagementpersonal.project.ProjectListFragment;
 import com.example.sande.projectmanagementpersonal.login.ForgotPasswordFragment;
 import com.example.sande.projectmanagementpersonal.project.ProjectUpdateFragment;
+import com.example.sande.projectmanagementpersonal.subtask.SubTaskCreateFragment;
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskDetailFragment;
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskListFragment;
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskRepository;
@@ -40,6 +41,7 @@ public interface MyComponent {
     void injectRetrofit(ViewTaskDetailByIDFragment fragment);
     void injectRetrofit(ViewSubTaskDetailByIDFragment fragment);
     void injectRetrofit(ViewSubTaskListByIDFragment fragment);
+    void injectRetrofit(SubTaskCreateFragment fragment);
 
 
     void injectRetrofit(ViewTeamMenberByTask fragment);
