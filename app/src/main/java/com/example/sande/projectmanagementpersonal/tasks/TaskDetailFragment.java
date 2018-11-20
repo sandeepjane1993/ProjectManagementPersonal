@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskListFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask;
 
 import javax.inject.Inject;
 
@@ -36,8 +37,6 @@ public class TaskDetailFragment extends Fragment {
     @BindView(R.id.goToSubTasksList)
     Button goToSubTasksList;
     Unbinder unbinder;
-    @BindView(R.id.goToTasksmenber)
-    Button goToTasksmenber;
 
     @Nullable
     @Override
@@ -67,8 +66,8 @@ public class TaskDetailFragment extends Fragment {
             case R.id.goToSubTasksList:
 
                 Bundle bundle = new Bundle();
-                bundle.putString("taskId", sharedPreferences.getString("taskId", null));
-                SubTaskListFragment subTaskListFragment = new SubTaskListFragment();
+                bundle.putString("taskId",    sharedPreferences.getString("taskId",null) );
+                SubTaskListFragment subTaskListFragment= new SubTaskListFragment();
                 subTaskListFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.container,
                         subTaskListFragment).addToBackStack("null").commit();
@@ -81,10 +80,7 @@ public class TaskDetailFragment extends Fragment {
     public void onAttach(Context context) {
         ((MyApplication) context.getApplicationContext()).getComponentInstance().injectRetrofit(this);
         super.onAttach(context);
-    }
-
-    @OnClick(R.id.goToTasksmenber)
-    public void onViewClicked() {
-
+        getFragmentManager().beginTransaction().replace(R.id.container,
+                new ViewTeamMenberByTask()).addToBackStack("null").commit();
     }
 }

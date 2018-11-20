@@ -12,6 +12,7 @@ import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskDetai
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskListById.ViewSubTaskListByIdResponce;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIdPojo;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIdResponce;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.EmployeeDetailPOJO;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.TeamMenberListByTaskResponse;
 
 import java.util.List;
@@ -82,5 +83,7 @@ public interface ApiService {
     @GET("/aamir/pms/android-app/pms_create_project_team.php?")
     Observable<CreateTeamResponse> createTeam(@Query("project_id") String project_id,
                                               @Query("team_member_userid") String team_member_userid);
+    @GET("/aamir/pms/android-app/pms_team_member_deatil.php?")
+    Observable<EmployeeDetailPOJO> getEmployeeDetail(@Query("memberuserid") String memberuserid);
 
 }

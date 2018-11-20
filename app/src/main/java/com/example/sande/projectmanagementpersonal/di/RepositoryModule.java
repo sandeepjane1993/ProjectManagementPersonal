@@ -16,7 +16,7 @@ public class RepositoryModule {
     @Provides
     @Singleton
     public EmployeeRepository providesEmployeeRepository() {
-        EmployeeRepository employeeRepository = new EmployeeRepository(myApplication);
-        return employeeRepository;
+        EmployeeRepository employeeDetailRepository = new EmployeeRepository(myApplication);
+        return employeeDetailRepository;
     }*/
 }
