@@ -15,7 +15,7 @@ import android.view.ViewGroup
 import com.example.sande.projectmanagementpersonal.MyApplication
 import com.example.sande.projectmanagementpersonal.R
 import com.example.sande.projectmanagementpersonal.adapters.SubTaskListAdapter
-import com.example.sande.projectmanagementpersonal.databinding.FragmentSubtasklistBinding
+/*import com.example.sande.projectmanagementpersonal.databinding.FragmentSubtasklistBinding*/
 import com.example.sande.projectmanagementpersonal.pojo.SubTaskListPOJO
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject

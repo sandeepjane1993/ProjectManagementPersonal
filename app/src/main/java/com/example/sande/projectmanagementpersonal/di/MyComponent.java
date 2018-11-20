@@ -8,6 +8,7 @@ import com.example.sande.projectmanagementpersonal.project.ProjectUpdateFragment
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskListFragment;
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskRepository;
 import com.example.sande.projectmanagementpersonal.tasks.TaskCreateFragment;
+import com.example.sande.projectmanagementpersonal.tasks.TaskDetailFragment;
 import com.example.sande.projectmanagementpersonal.tasks.TaskListFragment;
 import com.example.sande.projectmanagementpersonal.team.EmployeeListFragment;
 import com.example.sande.projectmanagementpersonal.team.EmployeeRepository;
@@ -49,4 +50,6 @@ public interface MyComponent {
     void injectRetrofit(EmployeeRepository fragment);
 
     void injectRetrofit(SubTaskRepository fragment);
+
+    void injectRetrofit(TaskDetailFragment fragment);
 }

@@ -1,5 +1,6 @@
 package com.example.sande.projectmanagementpersonal.team
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -15,6 +16,8 @@ import com.example.sande.projectmanagementpersonal.R
 import com.example.sande.projectmanagementpersonal.adapters.EmployeeListAdapter
 import com.example.sande.projectmanagementpersonal.adapters.SubTaskListAdapter
 import com.example.sande.projectmanagementpersonal.pojo.EmployeePOJO
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask
 import org.jetbrains.anko.support.v4.toast
 
 class EmployeeListFragment : Fragment(), EmployeeInterface, EmployeeListAdapter.ClickListener {
@@ -61,6 +64,17 @@ class EmployeeListFragment : Fragment(), EmployeeInterface, EmployeeListAdapter.
     override fun itemClicked(view: View?, position: Int) {
         toast("Employee clicked 2")
 
+        var empid= employeeList.get(position).empid
+        var fragment = ViewTaskListByIDFragment()
+        val bundle = Bundle()
+        bundle.putString("index", empid)
+
+        fragment.arguments = bundle
+        fragmentManager!!.beginTransaction().replace(R.id.container, fragment).addToBackStack(null).commit()
+  /*      activitygetSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, new ViewTeamMenberByTask()).
+                        addToBackStack(null)*/
         //employee clicked
     }
 

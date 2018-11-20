@@ -28,6 +28,7 @@ public class HomePageActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     //mTextMessage.setText(R.string.title_home);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomePageFragment()).commit();
                     return true;
                 case R.id.navigation_dashboard:
                     getSupportFragmentManager()

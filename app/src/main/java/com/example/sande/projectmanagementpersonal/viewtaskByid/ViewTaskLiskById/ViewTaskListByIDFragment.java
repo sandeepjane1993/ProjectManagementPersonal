@@ -49,9 +49,11 @@ public class ViewTaskListByIDFragment extends Fragment {
         mList = new ArrayList<>();
         rv=view.findViewById(R.id.rv_view_task_list_by_id);
         ApiService apiService = retrofit.create(ApiService.class);
-        Log.i(TAG, "onCreateView: "+sharedPreferences.getString("userId",null));
-        //todo
-        Call<ViewTaskListByIdResponce> call = apiService.get_View_task_list_by_id_response("15");
+
+        String userId = getArguments().getString("index","15");
+        Log.i(TAG, "onCreateView: "+userId);
+
+        Call<ViewTaskListByIdResponce> call = apiService.get_View_task_list_by_id_response(userId);
 
         call.enqueue(new Callback<ViewTaskListByIdResponce>() {
             @Override

@@ -101,13 +101,20 @@ public class TaskListFragment extends Fragment {
                 editor.putString("taskEndDate",myList.get(position).getEndDate());
                 editor.commit();
 
-                // fragment transact
+
                 Bundle bundle = new Bundle();
+                bundle.putString("taskId", myList.get(position).getTaskId() );
+                TaskDetailFragment taskDetailFragment= new TaskDetailFragment();
+                taskDetailFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        taskDetailFragment).addToBackStack("null").commit();
+                // fragment transact
+         /*       Bundle bundle = new Bundle();
                 bundle.putString("taskId", myList.get(position).getTaskId() );
                 SubTaskListFragment subTaskListFragment= new SubTaskListFragment();
                 subTaskListFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.container,
-                        subTaskListFragment).addToBackStack("null").commit();
+                        subTaskListFragment).addToBackStack("null").commit();*/
             }
         });
     }
