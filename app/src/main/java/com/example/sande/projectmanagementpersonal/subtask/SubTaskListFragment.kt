@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -28,6 +30,8 @@ class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener {
     lateinit var mAdapter : SubTaskListAdapter
     lateinit var taskId : String
 
+    internal lateinit var fab: FloatingActionButton
+
     @Inject
     internal lateinit var sharedPreferences: SharedPreferences
 
@@ -47,6 +51,13 @@ class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener {
                 R.layout.fragment_subtasklist, container, false)
 
         val view:View = binding.root*/
+
+        fab = view.findViewById<FloatingActionButton>(R.id.fab_taskList)
+        fab.setOnClickListener {
+
+            fragmentManager!!.beginTransaction().replace(R.id.container,
+                    SubTaskCreateFragment(), null).addToBackStack(null).commit()
+        }
 
         recyclerView = view.findViewById(R.id.recyclerView_SubTaskList)
 
