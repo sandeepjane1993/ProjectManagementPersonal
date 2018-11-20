@@ -7,13 +7,13 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="260dp"/>
+        android:layout_height="320dp"/>
 
     <Button
-        android:id="@+id/btn_addtaskMenber"
+        android:id="@+id/btn_addsubtaskMenber"
         android:layout_gravity="center"
         android:background="@drawable/button_curved_blue"
-        android:text="Add Task Menber"
+        android:text="Add SubTask Menber"
         android:textSize="16sp"
         android:layout_marginBottom="20dp"
         android:textColor="#FCFCFC"
@@ -26,7 +26,7 @@
         android:id="@+id/btn_updatetaskstatus"
         android:layout_gravity="center"
         android:background="@drawable/button_curved_blue"
-        android:text="update task status"
+        android:text="update subtask status"
         android:textSize="16sp"
         android:textColor="#FCFCFC"
         android:textAllCaps="false"
@@ -37,24 +37,10 @@
         android:layout_height="20dp"/>
 
     <Button
-        android:id="@+id/goToSubTasksList"
+        android:id="@+id/goToSubTasksmenber"
         android:layout_gravity="center"
         android:background="@drawable/button_curved_blue"
-        android:text="Sub Tasks List"
-        android:textSize="16sp"
-        android:textColor="#FCFCFC"
-        android:textAllCaps="false"
-        android:layout_width="140dp"
-        android:layout_height="40dp" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"/>
-
-    <Button
-        android:id="@+id/goToTasksmenber"
-        android:layout_gravity="center"
-        android:background="@drawable/button_curved_blue"
-        android:text="Tasks Menber"
+        android:text="Sub Tasks Menber"
         android:textSize="16sp"
         android:textColor="#FCFCFC"
         android:textAllCaps="false"
