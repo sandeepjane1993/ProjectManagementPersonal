@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.sande.projectmanagementpersonal.team.EmployeeListFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIDFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask;
+
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIDFragment;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask;
@@ -31,15 +36,16 @@ public class HomePageActivity extends AppCompatActivity {
                             addToBackStack(null)
                             .commit();
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_team:
                     //mTextMessage.setText(R.string.title_notifications);
-
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, new EmployeeListFragment()).addToBackStack("null").commit();
                     //this one for test only
-                    getSupportFragmentManager()
+                   /* getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.container, new ViewTeamMenberByTask()).
                             addToBackStack(null)
-                            .commit();
+                            .commit();*/
                     return true;
             }
             return false;

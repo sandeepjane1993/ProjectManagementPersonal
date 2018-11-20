@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.tasks.TaskListFragment;
+import com.example.sande.projectmanagementpersonal.team.CreateTeamFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +25,8 @@ public class ProjectDetailFragment extends Fragment {
     @BindView(R.id.goToTasksList)
     Button goToTasksList;
     Unbinder unbinder;
+    @BindView(R.id.btn_createTeam)
+    Button btnCreateTeam;
 
     @Nullable
     @Override
@@ -45,11 +48,22 @@ public class ProjectDetailFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_goToUpdateProject:
-                getFragmentManager().beginTransaction().replace(R.id.container,new ProjectUpdateFragment()).addToBackStack("null").commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, new ProjectUpdateFragment()).addToBackStack("null").commit();
                 break;
             case R.id.goToTasksList:
-                getFragmentManager().beginTransaction().replace(R.id.container,new TaskListFragment()).addToBackStack("null").commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, new TaskListFragment()).addToBackStack("null").commit();
                 break;
         }
+    }
+
+    @OnClick(R.id.btn_createTeam)
+    public void onViewClicked() {
+        String projectId = getArguments().getString("projectId");
+        Bundle bundle = new Bundle();
+        bundle.putString("projectId", projectId);
+        CreateTeamFragment createTeamFragment =  new CreateTeamFragment();
+        createTeamFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, createTeamFragment).addToBackStack("null").commit();
     }
 }

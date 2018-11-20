@@ -2,8 +2,11 @@ package com.example.sande.projectmanagementpersonal.network;
 
 import com.example.sande.projectmanagementpersonal.pojo.ForgotPasswordPOJO;
 import com.example.sande.projectmanagementpersonal.pojo.LoginPOJO;
+import com.example.sande.projectmanagementpersonal.responses.CreateTeamResponse;
+import com.example.sande.projectmanagementpersonal.responses.EmployeeListResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectCreateResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectListResponse;
+import com.example.sande.projectmanagementpersonal.responses.SubTaskListResponse;
 import com.example.sande.projectmanagementpersonal.responses.TaskListResponse;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskDetailById.ViewSubTaskDetailByIdPojo;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskListById.ViewSubTaskListByIdResponce;
@@ -70,5 +73,14 @@ public interface ApiService {
 
     @GET("/aamir/pms/android-app/pms_team_task.php?")
     Observable<TeamMenberListByTaskResponse> getTeamListByTask(@Query("taskid") String taskid, @Query("projectid") String projectid);
+    @GET("/aamir/pms/android-app/pms_project_sub_task_list.php?")
+    Observable<SubTaskListResponse> getSubTaskList();
+
+    @GET("/aamir/pms/android-app/pms_employee_list.php?")
+    Observable<EmployeeListResponse> getEmployeeList();
+
+    @GET("/aamir/pms/android-app/pms_create_project_team.php?")
+    Observable<CreateTeamResponse> createTeam(@Query("project_id") String project_id,
+                                              @Query("team_member_userid") String team_member_userid);
 
 }

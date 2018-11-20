@@ -17,11 +17,11 @@ import android.view.ViewGroup;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
-import com.example.sande.projectmanagementpersonal.adapters.ProjectListAdapter;
 import com.example.sande.projectmanagementpersonal.adapters.TaskListAdapter;
 import com.example.sande.projectmanagementpersonal.network.ApiService;
 import com.example.sande.projectmanagementpersonal.pojo.TaskListPOJO;
 import com.example.sande.projectmanagementpersonal.responses.TaskListResponse;
+import com.example.sande.projectmanagementpersonal.subtask.SubTaskListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +102,12 @@ public class TaskListFragment extends Fragment {
                 editor.commit();
 
                 // fragment transact
+                Bundle bundle = new Bundle();
+                bundle.putString("taskId", myList.get(position).getTaskId() );
+                SubTaskListFragment subTaskListFragment= new SubTaskListFragment();
+                subTaskListFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        subTaskListFragment).addToBackStack("null").commit();
             }
         });
     }

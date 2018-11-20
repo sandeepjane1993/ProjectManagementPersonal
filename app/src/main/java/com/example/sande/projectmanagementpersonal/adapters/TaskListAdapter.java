@@ -69,6 +69,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
             }
         }
     }
+
     public interface ClickListener{
 
         public void itemClicked(View view, int position);

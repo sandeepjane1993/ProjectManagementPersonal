@@ -61,7 +61,8 @@ public class ProjectListFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.container,new ProjectCreateFragment()).addToBackStack("null").commit();
+
+                getFragmentManager().beginTransaction().replace(R.id.container, new ProjectCreateFragment()).addToBackStack("null").commit();
             }
         });
 
@@ -100,7 +101,14 @@ public class ProjectListFragment extends Fragment {
                 editor.putString("projectStartDate",myList.get(position).getProjStartDate());
                 editor.putString("projectEndDate",myList.get(position).getProjEndStart());
                 editor.commit();
-                getFragmentManager().beginTransaction().replace(R.id.container, new ProjectDetailFragment()).addToBackStack("null").commit();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("projectId", sharedPreferences.getString("projectId", ""));
+                ProjectDetailFragment projectDetailFragment = new ProjectDetailFragment();
+                projectDetailFragment.setArguments(bundle);
+
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        projectDetailFragment).addToBackStack("null").commit();
             }
         });
     }
