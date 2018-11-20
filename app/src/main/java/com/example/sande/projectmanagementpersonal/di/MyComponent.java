@@ -11,6 +11,9 @@ import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskDetai
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskListById.ViewSubTaskListByIDFragment;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIDFragment;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Singleton;
 
@@ -32,4 +35,6 @@ public interface MyComponent {
     void injectRetrofit(ViewSubTaskDetailByIDFragment fragment);
     void injectRetrofit(ViewSubTaskListByIDFragment fragment);
 
+
+    void injectRetrofit(ViewTeamMenberByTask fragment);
 }

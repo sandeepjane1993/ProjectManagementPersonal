@@ -50,6 +50,7 @@ public class ViewTaskListByIDFragment extends Fragment {
         rv=view.findViewById(R.id.rv_view_task_list_by_id);
         ApiService apiService = retrofit.create(ApiService.class);
         Log.i(TAG, "onCreateView: "+sharedPreferences.getString("userId",null));
+        //todo
         Call<ViewTaskListByIdResponce> call = apiService.get_View_task_list_by_id_response("15");
 
         call.enqueue(new Callback<ViewTaskListByIdResponce>() {

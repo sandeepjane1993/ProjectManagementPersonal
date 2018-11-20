@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIDFragment;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -32,6 +33,13 @@ public class HomePageActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_notifications:
                     //mTextMessage.setText(R.string.title_notifications);
+
+                    //this one for test only
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.container, new ViewTeamMenberByTask()).
+                            addToBackStack(null)
+                            .commit();
                     return true;
             }
             return false;
