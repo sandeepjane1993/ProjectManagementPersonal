@@ -44,6 +44,12 @@ public class SubTaskDetailFragment extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("MyFile", MODE_PRIVATE);
 
         unbinder = ButterKnife.bind(this, view);
+
+        String subTaskId = getArguments().getString("subTaskId");
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("subTaskId",subTaskId);
+        editor.commit();
+
         return view;
     }
 

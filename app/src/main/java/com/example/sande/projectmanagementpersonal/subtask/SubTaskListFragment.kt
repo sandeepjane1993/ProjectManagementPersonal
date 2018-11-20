@@ -85,6 +85,11 @@ class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener {
     }
 
     override fun itemClicked(view: View?, position: Int) {
-        toast("Subtask clicked2")
+        val subTaskId = subTaskList.get(position).getSubtaskId()
+        var bundle : Bundle = Bundle()
+        bundle.putString("subTaskId", subTaskId)
+        var subTaskDetailFragment : SubTaskDetailFragment = SubTaskDetailFragment()
+        subTaskDetailFragment.arguments = bundle
+        fragmentManager!!.beginTransaction().replace(R.id.container, subTaskDetailFragment).addToBackStack(null).commit()
     }
 }
