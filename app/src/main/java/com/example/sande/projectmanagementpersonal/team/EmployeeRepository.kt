@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.util.Log
 import com.example.sande.projectmanagementpersonal.MyApplication
 import com.example.sande.projectmanagementpersonal.network.ApiService
+import com.example.sande.projectmanagementpersonal.network.RetrofitInstance
 import com.example.sande.projectmanagementpersonal.pojo.EmployeePOJO
 import com.example.sande.projectmanagementpersonal.pojo.SubTaskListPOJO
 import com.example.sande.projectmanagementpersonal.responses.CreateTeamResponse
@@ -19,22 +20,23 @@ import javax.inject.Inject
 
 class EmployeeRepository(val context: Context?, val employeeViewModel: EmployeeViewModel) {
 
-    @Inject
-    internal lateinit var retrofit : Retrofit
+/*    @Inject
+    lateinit var retrofit : Retrofit*/
 
-    @Inject
-    lateinit var sharedPreferences : SharedPreferences
+
+    var sharedPreferences : SharedPreferences
 
 //    private var subTaskList: List<SubTaskListPOJO>? = null
 
     var apiService : ApiService
 
     init {
-        (this.context?.applicationContext as MyApplication).getComponentInstance().injectRetrofit(this)
+        (this.context?.applicationContext as MyApplication).getComponentInstance().injectEmployeeRepositoryRetrofit(this)
 
-        sharedPreferences = context.getSharedPreferences("MyFile", MODE_PRIVATE)
+        sharedPreferences = context.getSharedPreferences("MyFile", Context.MODE_PRIVATE)
 
-        apiService = retrofit.create(ApiService::class.java)
+//        apiService = retrofit.create(ApiService::class.java)
+        apiService = RetrofitInstance.getRetrofitJsonInstance().create(ApiService::class.java)
     }
 
     fun initEmployeeList() {

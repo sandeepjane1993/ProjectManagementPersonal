@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.network.ApiService;
+import com.example.sande.projectmanagementpersonal.network.RetrofitInstance;
 import com.example.sande.projectmanagementpersonal.pojo.SubTaskListPOJO;
 import com.example.sande.projectmanagementpersonal.responses.SubTaskListResponse;
 import com.example.sande.projectmanagementpersonal.responses.UpdateSubtaskResponse;
@@ -45,8 +46,11 @@ public class SubTaskRepository {
         this.context = context;
         this.subTaskViewModel = subTaskViewModel;
 
+
+
         ((MyApplication) this.context.getApplicationContext()).getComponentInstance().injectRetrofit(this);
         sharedPreferences = context.getSharedPreferences("MyFile", MODE_PRIVATE);
+
     }
 
     public void getSubTask(Context context) {
@@ -79,7 +83,8 @@ public class SubTaskRepository {
         String subtaskid = sharedPreferences.getString("subTaskId", null);
         String taskid = sharedPreferences.getString("taskId", null);
         String project_id = sharedPreferences.getString("projectId", null);
-        String userid = sharedPreferences.getString("userId", null);
+//        String userid = sharedPreferences.getString("userId", null);
+        String userid = "14";
 
         apiService = retrofit.create(ApiService.class);
 

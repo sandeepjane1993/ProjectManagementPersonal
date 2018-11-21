@@ -35,10 +35,10 @@ class SubTaskUpdateFragment : Fragment(), AdapterView.OnItemSelectedListener, Su
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_task_update, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_subtask_update, container, false)
 
-        spinner = view.findViewById(R.id.sp_update_task)
-        button = view.findViewById(R.id.bt_update_task)
+        spinner = view.findViewById(R.id.sp_update_subtask)
+        button = view.findViewById(R.id.bt_update_subtask)
 
         initView()
 

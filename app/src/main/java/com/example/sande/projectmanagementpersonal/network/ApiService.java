@@ -102,4 +102,8 @@ public interface ApiService {
     Observable<UpdateSubtaskResponse> updateSubtask(@Query("subtaskid") String taskid,
                                                     @Query("taskid") String subtaskid, @Query("project_id") String project_id,
                                                     @Query("userid") String userid, @Query("task_status") String task_status);
+
+    @GET("/aamir/pms/android-app/pms_edit_task_status.php?")
+    Call<UpdateSubtaskResponse> updateTask(@Query("taskid") String subtaskid, @Query("project_id") String project_id,
+                                                    @Query("userid") String userid, @Query("task_status") String task_status);
 }
