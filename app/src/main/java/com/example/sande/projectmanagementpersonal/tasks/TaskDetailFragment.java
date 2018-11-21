@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.sande.projectmanagementpersonal.BuildConfig;
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.assignteammembers.AssignTaskMember;
@@ -51,7 +52,13 @@ public class TaskDetailFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_task_details, container, false);
         sharedPreferences = getActivity().getSharedPreferences("MyFile", MODE_PRIVATE);
+        if(BuildConfig.FLAVOR.equalsIgnoreCase("user")){
+            btnAddtaskMenber = (Button) view.findViewById(R.id.btn_addtaskMenber);
+            btnAddtaskMenber.setVisibility(View.GONE);
+            btnUpdatetaskstatus = (Button) view.findViewById(R.id.btn_updatetaskstatus);
+            btnUpdatetaskstatus.setVisibility(View.GONE);
 
+        }
         unbinder = ButterKnife.bind(this, view);
         return view;
     }

@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.sande.projectmanagementpersonal.BuildConfig
 import com.example.sande.projectmanagementpersonal.MyApplication
 import com.example.sande.projectmanagementpersonal.R
 import com.example.sande.projectmanagementpersonal.adapters.SubTaskListAdapter
@@ -21,6 +22,10 @@ import com.example.sande.projectmanagementpersonal.adapters.SubTaskListAdapter
 import com.example.sande.projectmanagementpersonal.pojo.SubTaskListPOJO
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
+import com.example.sande.projectmanagementpersonal.R.id.fab
+import android.support.design.widget.CoordinatorLayout
+
+
 
 class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener {
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.sande.projectmanagementpersonal.BuildConfig;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.tasks.TaskListFragment;
 import com.example.sande.projectmanagementpersonal.team.CreateTeamFragment;
@@ -33,6 +34,13 @@ public class ProjectDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_project_details, container, false);
+        if(BuildConfig.FLAVOR.equalsIgnoreCase("user")){
+            btnGoToUpdateProject = (Button) view.findViewById(R.id.btn_goToUpdateProject);
+            btnGoToUpdateProject.setVisibility(View.GONE);
+            btnCreateTeam = (Button) view.findViewById(R.id.btn_createTeam);
+            btnCreateTeam.setVisibility(View.GONE);
+        }
+
 
         unbinder = ButterKnife.bind(this, view);
         return view;

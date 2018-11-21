@@ -34,9 +34,9 @@ android {
             applicationId "com.example.sande.projectmanagementpersonal.manager"
             buildConfigField("String", "SERVER_URL", '"TODOA"')
         }
-        developer {
+        user {
             dimension "Yixin"
-            applicationId "com.example.sande.projectmanagementpersonal.developer"
+            applicationId "com.example.sande.projectmanagementpersonal.user"
             buildConfigField("String", "SERVER_URL", '"TODOB"')
         }
     }
