@@ -58,6 +58,11 @@ class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener {
         val view:View = binding.root*/
 
         fab = view.findViewById<FloatingActionButton>(R.id.fab_taskList)
+
+        if (BuildConfig.FLAVOR.equals("user", ignoreCase = true)) {
+
+            fab.hide()
+        }
         fab.setOnClickListener {
 
             fragmentManager!!.beginTransaction().replace(R.id.container,

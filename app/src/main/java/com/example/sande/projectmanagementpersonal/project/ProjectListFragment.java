@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sande.projectmanagementpersonal.BuildConfig;
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.adapters.ProjectListAdapter;
@@ -58,6 +59,11 @@ public class ProjectListFragment extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("MyFile",MODE_PRIVATE);
 
         fab = view.findViewById(R.id.fab);
+        if(BuildConfig.FLAVOR.equalsIgnoreCase("user")){
+
+            fab.hide();
+
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

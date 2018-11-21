@@ -14,7 +14,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.sande.projectmanagementpersonal.BuildConfig;
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.adapters.TaskListAdapter;
@@ -66,7 +68,11 @@ public class TaskListFragment extends Fragment {
          recyclerView = view.findViewById(R.id.recyclerView_TaskList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        if(BuildConfig.FLAVOR.equalsIgnoreCase("user")){
+            fabTaskList = (FloatingActionButton)view.findViewById(R.id.fab_taskList);
+            fabTaskList.hide();
 
+        }
         sharedPreferences = getActivity().getSharedPreferences("MyFile",MODE_PRIVATE);
 
 
