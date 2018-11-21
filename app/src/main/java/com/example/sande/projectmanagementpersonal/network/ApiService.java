@@ -2,6 +2,8 @@ package com.example.sande.projectmanagementpersonal.network;
 
 import com.example.sande.projectmanagementpersonal.pojo.ForgotPasswordPOJO;
 import com.example.sande.projectmanagementpersonal.pojo.LoginPOJO;
+import com.example.sande.projectmanagementpersonal.priority.SubTaskPriorityPojo;
+import com.example.sande.projectmanagementpersonal.priority.TaskPriorityPojo;
 import com.example.sande.projectmanagementpersonal.responses.CreateTeamResponse;
 import com.example.sande.projectmanagementpersonal.responses.EmployeeListResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectCreateResponse;
@@ -91,6 +93,11 @@ public interface ApiService {
                                               @Query("team_member_userid") String team_member_userid);
     @GET("/aamir/pms/android-app/pms_team_member_deatil.php?")
     Observable<EmployeeDetailPOJO> getEmployeeDetail(@Query("memberuserid") String memberuserid);
+
+    @GET("/aamir/pms/android-app/pms_view_task_priority.php?")
+    Observable<TaskPriorityPojo> getTaskPriority(@Query("taskid") String taskid,@Query("project_id") String project_id,@Query("userid") String userid);
+    @GET("/aamir/pms/android-app/pms_view_sub_task_priority.php?")
+    Observable<SubTaskPriorityPojo> getSubTaskPriority(@Query("taskid") String taskid, @Query("subtaskid") String subtask_id, @Query("project_id") String project_id, @Query("userid") String userid);
 
 
 }

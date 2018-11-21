@@ -2,6 +2,10 @@ package com.example.sande.projectmanagementpersonal.di;
 
 import com.example.sande.projectmanagementpersonal.login.ForgotPasswordFragment;
 import com.example.sande.projectmanagementpersonal.login.LoginFragment;
+import com.example.sande.projectmanagementpersonal.priority.SubTaskPriorityFragment;
+import com.example.sande.projectmanagementpersonal.priority.SubTaskPriorityRepository;
+import com.example.sande.projectmanagementpersonal.priority.TaskPriorityFragment;
+import com.example.sande.projectmanagementpersonal.priority.TaskPriorityRepository;
 import com.example.sande.projectmanagementpersonal.project.ProjectCreateFragment;
 import com.example.sande.projectmanagementpersonal.project.ProjectListFragment;
 import com.example.sande.projectmanagementpersonal.project.ProjectUpdateFragment;
@@ -73,4 +77,12 @@ public interface MyComponent {
     void injectRetrofit(EmployeeDetailFragment fragment);
 
     void injectRetrofit( EmployeeDetailRepository fragment);
+
+    void injectRetrofit(TaskPriorityRepository fragment);
+
+    void injectRetrofit(TaskPriorityFragment fragment);
+
+    void injectRetrofit(SubTaskPriorityRepository fragment);
+
+    void injectRetrofit(SubTaskPriorityFragment fragment);
 }

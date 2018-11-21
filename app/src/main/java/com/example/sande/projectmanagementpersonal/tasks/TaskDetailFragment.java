@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
+import com.example.sande.projectmanagementpersonal.priority.TaskPriorityFragment;
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskListFragment;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask;
 
@@ -39,6 +40,9 @@ public class TaskDetailFragment extends Fragment {
     Unbinder unbinder;
     @BindView(R.id.goToTasksmenber)
     Button goToTasksmenber;
+    @BindView(R.id.viewTaskPriority)
+    Button viewTaskPriority;
+
 
     @Nullable
     @Override
@@ -58,7 +62,7 @@ public class TaskDetailFragment extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.btn_addtaskMenber, R.id.btn_updatetaskstatus, R.id.goToSubTasksList})
+    @OnClick({R.id.btn_addtaskMenber, R.id.btn_updatetaskstatus, R.id.goToSubTasksList, R.id.goToTasksmenber, R.id.viewTaskPriority})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_addtaskMenber:
@@ -74,6 +78,14 @@ public class TaskDetailFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.container,
                         subTaskListFragment).addToBackStack("null").commit();
                 break;
+            case R.id.goToTasksmenber:
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        new ViewTeamMenberByTask()).addToBackStack("null").commit();
+                break;
+            case R.id.viewTaskPriority:
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        new TaskPriorityFragment()).addToBackStack("null").commit();
+                break;
         }
     }
 
@@ -85,9 +97,9 @@ public class TaskDetailFragment extends Fragment {
 
     }
 
-    @OnClick(R.id.goToTasksmenber)
     public void onViewClicked() {
-        getFragmentManager().beginTransaction().replace(R.id.container,
-                new ViewTeamMenberByTask()).addToBackStack("null").commit();
+
     }
+
+
 }

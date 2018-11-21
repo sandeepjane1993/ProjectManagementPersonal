@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
+import com.example.sande.projectmanagementpersonal.priority.SubTaskPriorityFragment;
 
 import javax.inject.Inject;
 
@@ -34,6 +35,8 @@ public class SubTaskDetailFragment extends Fragment {
     @BindView(R.id.goToSubTasksmenber)
     Button goToSubTasksmenber;
     Unbinder unbinder;
+    @BindView(R.id.goToSubTaskpriority)
+    Button goToSubTaskpriority;
 
 
     @Nullable
@@ -47,7 +50,7 @@ public class SubTaskDetailFragment extends Fragment {
 
         String subTaskId = getArguments().getString("subTaskId");
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("subTaskId",subTaskId);
+        editor.putString("subTaskId", subTaskId);
         editor.commit();
 
         return view;
@@ -66,7 +69,7 @@ public class SubTaskDetailFragment extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.btn_addsubtaskMenber, R.id.btn_updatetaskstatus, R.id.goToSubTasksmenber})
+    @OnClick({R.id.btn_addsubtaskMenber, R.id.btn_updatetaskstatus, R.id.goToSubTasksmenber,R.id.goToSubTaskpriority})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_addsubtaskMenber:
@@ -75,6 +78,12 @@ public class SubTaskDetailFragment extends Fragment {
                 break;
             case R.id.goToSubTasksmenber:
                 break;
+            case R.id.goToSubTaskpriority:
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        new SubTaskPriorityFragment()).addToBackStack("null").commit();
+                break;
         }
     }
+
+
 }
