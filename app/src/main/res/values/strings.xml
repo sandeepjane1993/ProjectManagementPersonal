@@ -2,7 +2,7 @@
     <string name="app_name">ProjectManagementPersonal</string>
     <string name="title_activity_home_page">HomePageActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Project</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_employee">Employee</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -4,10 +4,12 @@ import com.example.sande.projectmanagementpersonal.pojo.ForgotPasswordPOJO;
 import com.example.sande.projectmanagementpersonal.pojo.LoginPOJO;
 import com.example.sande.projectmanagementpersonal.responses.CreateTeamResponse;
 import com.example.sande.projectmanagementpersonal.responses.EmployeeListResponse;
+import com.example.sande.projectmanagementpersonal.responses.MemberOfSubtaskResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectCreateResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectListResponse;
 import com.example.sande.projectmanagementpersonal.responses.SubTaskListResponse;
 import com.example.sande.projectmanagementpersonal.responses.TaskListResponse;
+import com.example.sande.projectmanagementpersonal.responses.UpdateSubtaskResponse;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskDetailById.ViewSubTaskDetailByIdPojo;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewSubTaskListById.ViewSubTaskListByIdResponce;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskDetailById.ViewTaskDetailByIdPojo;
@@ -92,5 +94,12 @@ public interface ApiService {
     @GET("/aamir/pms/android-app/pms_team_member_deatil.php?")
     Observable<EmployeeDetailPOJO> getEmployeeDetail(@Query("memberuserid") String memberuserid);
 
+    @GET("/aamir/pms/android-app/pms_team_sub_task.php?")
+    Observable<MemberOfSubtaskResponse> getMemberOfSubtask(@Query("taskid") String taskid,
+                                                           @Query("subtaskid") String subtaskid, @Query("projectid") String projectid);
 
+    @GET("/aamir/pms/android-app/pms_edit_sub_task_status.php?")
+    Observable<UpdateSubtaskResponse> updateSubtask(@Query("subtaskid") String taskid,
+                                                    @Query("taskid") String subtaskid, @Query("project_id") String project_id,
+                                                    @Query("userid") String userid, @Query("task_status") String task_status);
 }

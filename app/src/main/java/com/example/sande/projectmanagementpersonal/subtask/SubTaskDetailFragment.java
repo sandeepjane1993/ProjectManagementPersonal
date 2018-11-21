@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
+import com.example.sande.projectmanagementpersonal.team.MemberOfSubTaskFragment;
 
 import javax.inject.Inject;
 
@@ -72,8 +73,12 @@ public class SubTaskDetailFragment extends Fragment {
             case R.id.btn_addsubtaskMenber:
                 break;
             case R.id.btn_updatetaskstatus:
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        new SubTaskUpdateFragment(), null).addToBackStack("null").commit();
                 break;
             case R.id.goToSubTasksmenber:
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        new MemberOfSubTaskFragment(), null).addToBackStack("null").commit();
                 break;
         }
     }

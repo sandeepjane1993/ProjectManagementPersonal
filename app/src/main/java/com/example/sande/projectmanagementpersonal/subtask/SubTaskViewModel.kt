@@ -1,23 +1,15 @@
 package com.example.sande.projectmanagementpersonal.subtask
 
-import android.app.Application
 import android.content.Context
 import android.databinding.BaseObservable
-import android.databinding.Bindable
-import android.databinding.BindingAdapter
-import android.support.v7.widget.RecyclerView
-import android.util.Log
-import com.example.sande.projectmanagementpersonal.adapters.SubTaskListAdapter
 import com.example.sande.projectmanagementpersonal.pojo.SubTaskListPOJO
+import com.example.sande.projectmanagementpersonal.responses.UpdateSubtaskResponse
 
-class SubTaskViewModel (val subTaskListFragment : SubTaskListFragment, context: Context) : BaseObservable() {
+class SubTaskViewModel (val generalSubTaskFragment : SubTaskInterface, val context: Context?) : BaseObservable() {
 
     val subTaskRepository : SubTaskRepository = SubTaskRepository(this, context)
 
     var subTaskList : List<SubTaskListPOJO>? = null
-
-    val context : Context = context
-
 
     fun initsubTaskList() {
 
@@ -30,7 +22,15 @@ class SubTaskViewModel (val subTaskListFragment : SubTaskListFragment, context: 
 
 
     fun subTaskList(subTaskList : List<SubTaskListPOJO>) {
-        subTaskListFragment.initRV(subTaskList)
+        generalSubTaskFragment.initRV(subTaskList)
+    }
+
+    fun updateSubTask(status: String) {
+        subTaskRepository.updateSubTask(status);
+    }
+
+    fun updateSubTaskResponse(updateSubtaskResponse: UpdateSubtaskResponse) {
+        generalSubTaskFragment.updateSubTaskResponse(updateSubtaskResponse);
     }
 
 /*    @get:Bindable
