@@ -47,7 +47,7 @@ class TaskPriorityFragment : Fragment(), TaskPriority {
 //
 
         sharedPreferences = activity!!.getSharedPreferences("MyFile", MODE_PRIVATE)
-        Log.i("tag", sharedPreferences.getString("userId", null))
+//        Log.i("tag", sharedPreferences.getString("userId", null))
         viewModel.callwebwservice(sharedPreferences.getString("taskId", null)!!,
                 sharedPreferences.getString("projectId", null)!!,
 //                sharedPreferences.getString("14")!!
