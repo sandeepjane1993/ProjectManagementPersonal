@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class = "AssignTaskBinding">
+
+        <variable
+            name="viewModel"
+            type="com.example.sande.projectmanagementpersonal.allviewmodels.AssignTaskViewModel"/>
+    </data>
+<LinearLayout
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <EditText
+        android:id="@+id/et_userId_ATM"
+        android:hint="enter user id"
+        android:layout_gravity="center"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <Button
+        android:id="@+id/btn_assignTaskToMember"
+        android:background="@drawable/button_curved_blue"
+        android:text="Assign task "
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+</layout>

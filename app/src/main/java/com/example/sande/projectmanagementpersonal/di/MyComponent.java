@@ -1,5 +1,6 @@
 package com.example.sande.projectmanagementpersonal.di;
 
+import com.example.sande.projectmanagementpersonal.assignteammembers.AssignSubTaskMember;
 import com.example.sande.projectmanagementpersonal.login.ForgotPasswordFragment;
 import com.example.sande.projectmanagementpersonal.login.LoginFragment;
 import com.example.sande.projectmanagementpersonal.priority.SubTaskPriorityFragment;
@@ -75,6 +76,9 @@ public interface MyComponent {
     void injectRetrofit(SubTaskDetailFragment fragment);
 
     void injectRetrofit(EmployeeDetailFragment fragment);
+
+    void injectRetrofit( AssignSubTaskMember fragment);
+
 
     void injectRetrofit( EmployeeDetailRepository fragment);
 

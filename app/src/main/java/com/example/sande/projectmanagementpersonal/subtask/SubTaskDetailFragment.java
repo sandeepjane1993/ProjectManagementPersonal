@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
+import com.example.sande.projectmanagementpersonal.assignteammembers.AssignSubTaskMember;
 import com.example.sande.projectmanagementpersonal.priority.SubTaskPriorityFragment;
 
 import javax.inject.Inject;
@@ -73,6 +74,8 @@ public class SubTaskDetailFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_addsubtaskMenber:
+                getFragmentManager().beginTransaction().replace(R.id.container, new AssignSubTaskMember()).commit();
+
                 break;
             case R.id.btn_updatetaskstatus:
                 break;

@@ -99,5 +99,12 @@ public interface ApiService {
     @GET("/aamir/pms/android-app/pms_view_sub_task_priority.php?")
     Observable<SubTaskPriorityPojo> getSubTaskPriority(@Query("taskid") String taskid, @Query("subtaskid") String subtask_id, @Query("project_id") String project_id, @Query("userid") String userid);
 
+    //http://rjtmobile.com/aamir/pms/android-app/pms_assign_task_project.php?task_id=1&project_id=27&team_member_userid=14
+    @GET("/aamir/pms/android-app/pms_assign_task_project.php?")
+    Call<ProjectCreateResponse> assignTaskToMember(@Query("task_id") String taskId,@Query("project_id") String projectId,@Query("team_member_userid") String userId);
+
+    //http://rjtmobile.com/aamir/pms/android-app/pms_assign_sub_task_project.php?task_id=1&subtask_id=1&project_id=27&team_member_userid=14
+    @GET("/aamir/pms/android-app/pms_assign_sub_task_project.php?")
+    Observable<ProjectCreateResponse> assignSubTaskToMember(@Query("task_id")String taskId,@Query("subtask_id") String subTaskId,@Query("project_id") String project_id,@Query("team_member_userid") String team_member_userid);
 
 }
