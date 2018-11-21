@@ -17,6 +17,9 @@ public class SubTaskPriorityPojo{
     @SerializedName("priority")
     private String userid;
 
+    public SubTaskPriorityPojo() {
+    }
+
     @Override
     public String toString() {
         return "SubTaskPriorityPojo{" +

@@ -3,6 +3,7 @@ package com.example.sande.projectmanagementpersonal.priority
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.sande.projectmanagementpersonal.MyApplication
 import com.example.sande.projectmanagementpersonal.R
+import com.example.sande.projectmanagementpersonal.databinding.FragmentTaskPriorityBinding
 import kotlinx.android.synthetic.main.fragment_task_priority.*
 import javax.inject.Inject
 
@@ -34,13 +36,23 @@ class TaskPriorityFragment : Fragment(), TaskPriority {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_task_priority, container, false)
+
+//        val binding:FragmentTaskPriorityBinding
+//                = DataBindingUtil.inflate(inflater,
+//                R.layout.fragment_task_priority,container,false)
+//
+//        val view:View = binding.root
+//
+//        binding.setTaskPriorityPojo = viewModel
+//
+
         sharedPreferences = activity!!.getSharedPreferences("MyFile", MODE_PRIVATE)
         Log.i("tag", sharedPreferences.getString("userId", null))
         viewModel.callwebwservice(sharedPreferences.getString("taskId", null)!!,
                 sharedPreferences.getString("projectId", null)!!,
 //                sharedPreferences.getString("14")!!
         "14"
-        )
+        )//Todo
 
         return view
     }

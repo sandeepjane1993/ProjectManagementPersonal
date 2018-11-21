@@ -12,6 +12,9 @@ public class TaskPriorityPojo{
     @SerializedName("priority")
     private String userid;
 
+    public TaskPriorityPojo() {
+    }
+
     @Override
     public String toString() {
         return "TaskPriorityPojo{" +
@@ -19,7 +22,7 @@ public class TaskPriorityPojo{
                 ", project_id='" + project_id + '\'' +
                 ", userid='" + userid + '\'' +
                 '}';
-    }//Todo
+    }
 
     public TaskPriorityPojo(String taskid, String project_id, String userid) {
         this.taskid = taskid;
