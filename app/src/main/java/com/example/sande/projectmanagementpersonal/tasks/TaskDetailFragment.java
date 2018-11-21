@@ -75,7 +75,7 @@ public class TaskDetailFragment extends Fragment {
         switch (view.getId()) {
             case R.id.btn_addtaskMenber:
 
-                getFragmentManager().beginTransaction().replace(R.id.container, new AssignTaskMember()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, new AssignTaskMember()).addToBackStack("null").commit();
 
                 break;
             case R.id.btn_updatetaskstatus:

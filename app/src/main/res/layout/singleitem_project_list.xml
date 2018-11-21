@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     app:cardCornerRadius="10dp"
-    app:cardElevation="6dp"
-    app:cardBackgroundColor="#ff9b96">
+    app:cardElevation="6dp">
 
     <LinearLayout
        android:orientation="vertical"
@@ -18,8 +17,7 @@
            android:paddingTop="8dp"
            android:paddingLeft="20dp"
            android:text="text"
-           android:textColor="#0f0f0f"
-           android:textSize="15sp"
+           android:textSize="17sp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content" />
 

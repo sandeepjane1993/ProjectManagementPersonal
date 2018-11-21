@@ -32,7 +32,11 @@ public class HomePageActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomePageFragment()).commit();
                     return true;
                 case R.id.navigation_dashboard:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProjectListFragment()).addToBackStack("null").commit();
+                    /*getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.container, new ViewTaskListByIDFragment()).
+                            addToBackStack(null)
+                            .commit();*/
                     return true;
                 case R.id.navigation_team:
                     //mTextMessage.setText(R.string.title_notifications);

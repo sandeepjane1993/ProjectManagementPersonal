@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,7 +11,7 @@
         android:textSize="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="144dp"
-        android:textColor="#0f0f0f"
+        android:textColor="#ed7373"
         android:textStyle="bold" />
 
 
@@ -26,6 +26,8 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_taskList"
+        app:backgroundTint="#f2e829"
+        app:srcCompat="@drawable/ic_add_black_24dp"
         android:layout_gravity="bottom|end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

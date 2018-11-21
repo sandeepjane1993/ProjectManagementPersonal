@@ -3,6 +3,7 @@ package com.example.sande.projectmanagementpersonal.project;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -59,6 +60,7 @@ public class ProjectListFragment extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("MyFile",MODE_PRIVATE);
 
         fab = view.findViewById(R.id.fab);
+
         if(BuildConfig.FLAVOR.equalsIgnoreCase("user")){
 
             fab.hide();
