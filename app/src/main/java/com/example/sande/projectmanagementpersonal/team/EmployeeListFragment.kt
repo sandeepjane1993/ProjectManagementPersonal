@@ -1,6 +1,5 @@
 package com.example.sande.projectmanagementpersonal.team
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -16,6 +15,7 @@ import com.example.sande.projectmanagementpersonal.R
 import com.example.sande.projectmanagementpersonal.adapters.EmployeeListAdapter
 import com.example.sande.projectmanagementpersonal.adapters.SubTaskListAdapter
 import com.example.sande.projectmanagementpersonal.pojo.EmployeePOJO
+import com.example.sande.projectmanagementpersonal.pojo.MemberOfSubtaskPOJO
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.ViewTeamMenberByTask
 import org.jetbrains.anko.support.v4.toast
@@ -79,6 +79,9 @@ class EmployeeListFragment : Fragment(), EmployeeInterface, EmployeeListAdapter.
     }
 
     override fun showAddEmployeeInfo(info: String) {
+    }
+
+    override fun showMemberOfSubtask(memberOfSubtaskList: List<MemberOfSubtaskPOJO>) {
     }
 
 }

@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.Spinner
 import com.example.sande.projectmanagementpersonal.R
 import com.example.sande.projectmanagementpersonal.pojo.EmployeePOJO
+import com.example.sande.projectmanagementpersonal.pojo.MemberOfSubtaskPOJO
 import kotlinx.android.synthetic.main.fragment_create_team.*
 import org.jetbrains.anko.support.v4.toast
 
@@ -85,6 +86,9 @@ class CreateTeamFragment : Fragment(), EmployeeInterface, AdapterView.OnItemSele
 
     override fun showAddEmployeeInfo(info: String) {
         toast(info)
+    }
+
+    override fun showMemberOfSubtask(memberOfSubtaskList: List<MemberOfSubtaskPOJO>) {
     }
 
 }

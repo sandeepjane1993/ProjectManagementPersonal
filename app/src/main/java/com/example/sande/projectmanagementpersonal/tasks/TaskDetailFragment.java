@@ -79,6 +79,8 @@ public class TaskDetailFragment extends Fragment {
 
                 break;
             case R.id.btn_updatetaskstatus:
+                getFragmentManager().beginTransaction().replace(R.id.container,
+                        new TaskUpdateFragment()).addToBackStack("null").commit();
                 break;
             case R.id.goToSubTasksList:
 

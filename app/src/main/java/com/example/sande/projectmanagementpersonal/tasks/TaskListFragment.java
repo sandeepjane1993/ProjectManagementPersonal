@@ -117,10 +117,10 @@ public class TaskListFragment extends Fragment {
                 // fragment transact
          /*       Bundle bundle = new Bundle();
                 bundle.putString("taskId", myList.get(position).getTaskId() );
-                SubTaskListFragment subTaskListFragment= new SubTaskListFragment();
-                subTaskListFragment.setArguments(bundle);
+                SubTaskListFragment generalSubTaskFragment= new SubTaskListFragment();
+                generalSubTaskFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.container,
-                        subTaskListFragment).addToBackStack("null").commit();*/
+                        generalSubTaskFragment).addToBackStack("null").commit();*/
             }
         });
     }

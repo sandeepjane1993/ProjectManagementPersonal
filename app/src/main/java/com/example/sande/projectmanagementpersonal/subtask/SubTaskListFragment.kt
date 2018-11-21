@@ -20,6 +20,7 @@ import com.example.sande.projectmanagementpersonal.R
 import com.example.sande.projectmanagementpersonal.adapters.SubTaskListAdapter
 /*import com.example.sande.projectmanagementpersonal.databinding.FragmentSubtasklistBinding*/
 import com.example.sande.projectmanagementpersonal.pojo.SubTaskListPOJO
+import com.example.sande.projectmanagementpersonal.responses.UpdateSubtaskResponse
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 import com.example.sande.projectmanagementpersonal.R.id.fab
@@ -27,7 +28,9 @@ import android.support.design.widget.CoordinatorLayout
 
 
 
-class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener {
+class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener, SubTaskInterface {
+    override fun updateSubTaskResponse(updateSubtaskResponse: UpdateSubtaskResponse) {
+    }
 
     lateinit var subTaskViewModel : SubTaskViewModel
     lateinit var recyclerView: RecyclerView
@@ -78,7 +81,7 @@ class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener {
         return view
     }
 
-    fun initRV(subTaskList : List<SubTaskListPOJO>) {
+    override fun initRV(subTaskList : List<SubTaskListPOJO>) {
 
         this.subTaskList = subTaskList as MutableList<SubTaskListPOJO>
 

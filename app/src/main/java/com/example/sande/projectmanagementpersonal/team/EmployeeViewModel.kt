@@ -3,6 +3,7 @@ package com.example.sande.projectmanagementpersonal.team
 import android.content.Context
 import android.databinding.BaseObservable
 import com.example.sande.projectmanagementpersonal.pojo.EmployeePOJO
+import com.example.sande.projectmanagementpersonal.pojo.MemberOfSubtaskPOJO
 
 class EmployeeViewModel(val generalEmployeeFragment : EmployeeInterface, context: Context?) : BaseObservable() {
 
@@ -25,6 +26,14 @@ class EmployeeViewModel(val generalEmployeeFragment : EmployeeInterface, context
 
     fun showAddEmployeeInfo(info: String) {
         generalEmployeeFragment.showAddEmployeeInfo(info)
+    }
+
+    fun getEmployeeListBySubtask() {
+        employeeRepository.getEmployeeListBySubtask()
+    }
+
+    fun showMemberOfSubtask(memberOfSubtaskList: List<MemberOfSubtaskPOJO>) {
+        generalEmployeeFragment.showMemberOfSubtask(memberOfSubtaskList)
     }
 
 
