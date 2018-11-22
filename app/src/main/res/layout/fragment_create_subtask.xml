@@ -22,6 +22,16 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="40dp"/>
+    <TextView
+        android:id="@+id/tv_Pn_STC"
+        android:textAlignment="viewStart"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <TextView
+        android:id="@+id/tv_Tn_STC"
+        android:textAlignment="viewStart"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
     <EditText
         android:id="@+id/et_SubTaskName_STC"

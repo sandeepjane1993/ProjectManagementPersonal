@@ -17,22 +17,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="100dp"/>
 
-    <TextView
-        android:paddingTop="7dp"
-        android:paddingLeft="20dp"
-        android:text="Browse"
-        android:textColor="#FCFCFC"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
+
     <TextView
         android:paddingLeft="10dp"
         android:textSize="18sp"
         android:paddingTop="9dp"
-        android:text="Folders and Projects: 3"
+        android:text="Folders and Projects"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 

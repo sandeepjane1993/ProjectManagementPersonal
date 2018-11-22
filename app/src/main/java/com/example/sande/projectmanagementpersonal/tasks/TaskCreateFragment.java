@@ -12,10 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.network.ApiService;
+import com.example.sande.projectmanagementpersonal.project.ProjectListFragment;
 import com.example.sande.projectmanagementpersonal.responses.ProjectCreateResponse;
 
 import javax.inject.Inject;
@@ -53,7 +56,7 @@ public class TaskCreateFragment extends Fragment {
     Unbinder unbinder;
 
     private static final String TAG = "TaskCreateFragment";
-
+    TextView tv_pn;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,6 +64,9 @@ public class TaskCreateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_task, container, false);
 
         sharedPreferences = getActivity().getSharedPreferences("MyFile",MODE_PRIVATE);
+        tv_pn = view.findViewById(R.id.tv_Pn);
+        tv_pn.setText(sharedPreferences.getString("projectName",""));
+
 
         unbinder = ButterKnife.bind(this, view);
         return view;
@@ -92,6 +98,8 @@ public class TaskCreateFragment extends Fragment {
 
     private void responseResult(ProjectCreateResponse projectCreateResponse) {
         Log.i(TAG, "responseResult: " + projectCreateResponse.getProjectCreateResponse().get(0));
+        Toast.makeText(getActivity(), "" + projectCreateResponse.getProjectCreateResponse().get(0) , Toast.LENGTH_SHORT).show();
+        getFragmentManager().beginTransaction().replace(R.id.container,new TaskListFragment()).addToBackStack("").commit();
     }
 
     private void errorResult(Throwable throwable) {

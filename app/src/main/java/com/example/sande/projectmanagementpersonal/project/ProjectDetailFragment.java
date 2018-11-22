@@ -1,5 +1,6 @@
 package com.example.sande.projectmanagementpersonal.project;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,14 +14,18 @@ import com.example.sande.projectmanagementpersonal.BuildConfig;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.tasks.TaskListFragment;
 import com.example.sande.projectmanagementpersonal.team.CreateTeamFragment;
+import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById.ViewTaskListByIDFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ProjectDetailFragment extends Fragment {
 
+    SharedPreferences sharedPreferences;
     @BindView(R.id.btn_goToUpdateProject)
     Button btnGoToUpdateProject;
     @BindView(R.id.goToTasksList)
@@ -34,6 +39,9 @@ public class ProjectDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_project_details, container, false);
+
+        sharedPreferences = getActivity().getSharedPreferences("MyFile",MODE_PRIVATE);
+
         if(BuildConfig.FLAVOR.equalsIgnoreCase("user")){
             btnGoToUpdateProject = (Button) view.findViewById(R.id.btn_goToUpdateProject);
             btnGoToUpdateProject.setVisibility(View.GONE);
@@ -59,7 +67,15 @@ public class ProjectDetailFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.container, new ProjectUpdateFragment()).addToBackStack("null").commit();
                 break;
             case R.id.goToTasksList:
-                getFragmentManager().beginTransaction().replace(R.id.container, new TaskListFragment()).addToBackStack("null").commit();
+                if(BuildConfig.FLAVOR.equalsIgnoreCase("user")){
+                    Bundle bundle = new Bundle();
+                    ViewTaskListByIDFragment viewTaskListByIDFragment = new ViewTaskListByIDFragment();
+                    bundle.putString("index",sharedPreferences.getString("projectId",null));
+                    viewTaskListByIDFragment.setArguments(bundle);
+                    getFragmentManager().beginTransaction().replace(R.id.container, viewTaskListByIDFragment).addToBackStack("null").commit();
+                }
+                else{
+                getFragmentManager().beginTransaction().replace(R.id.container, new TaskListFragment()).addToBackStack("null").commit();}
                 break;
         }
     }

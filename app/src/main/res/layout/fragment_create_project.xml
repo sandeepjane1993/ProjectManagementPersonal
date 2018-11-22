@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"/>
 
+
     <EditText
         android:id="@+id/et_ProjectName_PC"
         android:hint="Project Name"
@@ -40,12 +41,14 @@
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/et_StartDate_PC"
-        android:hint="Start Date"
+        android:hint="Start Date(30-09-2018)"
+        android:inputType="date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/et_EndDate_PC"
-        android:hint="End Date"
+        android:hint="End Date(30-10-2018)"
+        android:inputType="date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

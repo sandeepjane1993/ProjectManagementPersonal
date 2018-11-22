@@ -63,7 +63,7 @@ public class SubTaskRepository {
     }
 
     private void responseResult(SubTaskListResponse subTaskListResponse) {
-        Log.i(TAG, "responseResult: yes");
+        Log.i(TAG, "responseResult: yes" + subTaskListResponse.getSubTaskListResponse().toString());
 
         subTaskList = subTaskListResponse.getSubTaskListResponse();
 

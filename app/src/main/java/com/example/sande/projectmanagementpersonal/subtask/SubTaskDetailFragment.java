@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class SubTaskDetailFragment extends Fragment {
     @BindView(R.id.goToSubTaskpriority)
     Button goToSubTaskpriority;
 
-
+    private static final String TAG = "SubTaskDetailFragment";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,11 +57,7 @@ public class SubTaskDetailFragment extends Fragment {
 
         }
         unbinder = ButterKnife.bind(this, view);
-
-        String subTaskId = getArguments().getString("subTaskId");
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("subTaskId", subTaskId);
-        editor.commit();
+        Log.i(TAG, "onCreateView: " + sharedPreferences.getString("subTaskId",""));
 
         return view;
     }
@@ -82,8 +79,7 @@ public class SubTaskDetailFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_addsubtaskMenber:
-                getFragmentManager().beginTransaction().replace(R.id.container, new AssignSubTaskMember()).commit();
-
+                getFragmentManager().beginTransaction().replace(R.id.container, new AssignSubTaskMember()).addToBackStack("").commit();
                 break;
             case R.id.btn_updatetaskstatus:
                 getFragmentManager().beginTransaction().replace(R.id.container,

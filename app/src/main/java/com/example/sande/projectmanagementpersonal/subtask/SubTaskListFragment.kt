@@ -25,10 +25,11 @@ import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 import com.example.sande.projectmanagementpersonal.R.id.fab
 import android.support.design.widget.CoordinatorLayout
+import com.example.sande.projectmanagementpersonal.adapters.ProjectListAdapter
+import com.example.sande.projectmanagementpersonal.project.ProjectDetailFragment
 
 
-
-class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener, SubTaskInterface {
+class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener,SubTaskInterface {
     override fun updateSubTaskResponse(updateSubtaskResponse: UpdateSubtaskResponse) {
     }
 
@@ -97,7 +98,8 @@ class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener, SubTas
 
         mAdapter = SubTaskListAdapter(context, validSubTaskList)
 
-        mAdapter.setClickListener(this)
+        mAdapter.setClickListener(this);
+
 
         val mLayoutManager = LinearLayoutManager(context)
         mLayoutManager.setReverseLayout(true);
@@ -109,11 +111,13 @@ class SubTaskListFragment : Fragment(), SubTaskListAdapter.ClickListener, SubTas
     }
 
     override fun itemClicked(view: View?, position: Int) {
-        val subTaskId = subTaskList.get(position).getSubtaskId()
-        var bundle : Bundle = Bundle()
-        bundle.putString("subTaskId", subTaskId)
+/*        val subTaskId = subTaskList.get(position).getSubtaskId()
+        Log.i("subtask_id", subTaskList.get(position).toString())*/
+
+/*        var bundle : Bundle = Bundle()
+        bundle.putString("subTaskId", subTaskId)*/
         var subTaskDetailFragment : SubTaskDetailFragment = SubTaskDetailFragment()
-        subTaskDetailFragment.arguments = bundle
+//        subTaskDetailFragment.arguments = bundle
         fragmentManager!!.beginTransaction().replace(R.id.container, subTaskDetailFragment).addToBackStack(null).commit()
     }
 }

@@ -19,8 +19,6 @@ import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTaskLiskById
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.EmployeeDetailPOJO;
 import com.example.sande.projectmanagementpersonal.viewtaskByid.ViewTeamMenberByTask.TeamMenberListByTaskResponse;
 
-import java.util.List;
-
 import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -91,8 +89,7 @@ public interface ApiService {
     Observable<EmployeeListResponse> getEmployeeList();
 
     @GET("/aamir/pms/android-app/pms_create_project_team.php?")
-    Observable<CreateTeamResponse> createTeam(@Query("project_id") String project_id,
-                                              @Query("team_member_userid") String team_member_userid);
+    Observable<CreateTeamResponse> createTeam(@Query("project_id") String project_id, @Query("team_member_userid") String team_member_userid,@Query("task_id") String taskId,@Query("subtask_id") String subTaskId);
     @GET("/aamir/pms/android-app/pms_team_member_deatil.php?")
     Observable<EmployeeDetailPOJO> getEmployeeDetail(@Query("memberuserid") String memberuserid);
 

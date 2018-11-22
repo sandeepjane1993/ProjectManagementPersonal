@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
@@ -82,6 +83,8 @@ public class ProjectCreateFragment extends Fragment {
 
     private void responseResult(ProjectCreateResponse projectCreateResponse) {
         Log.i(TAG, "responseResult: " + projectCreateResponse.getProjectCreateResponse().get(0));
+        Toast.makeText(getActivity(), "" + projectCreateResponse.getProjectCreateResponse().get(0) , Toast.LENGTH_SHORT).show();
+        getFragmentManager().beginTransaction().replace(R.id.container,new ProjectListFragment()).addToBackStack("").commit();
     }
 
     private void errorResult(Throwable throwable) {

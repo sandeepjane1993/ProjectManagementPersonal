@@ -27,6 +27,7 @@ import com.example.sande.projectmanagementpersonal.pojo.ProjectListPOJO;
 import com.example.sande.projectmanagementpersonal.responses.ProjectListResponse;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -93,6 +94,7 @@ public class ProjectListFragment extends Fragment {
         Log.i(TAG, "responseResult: " + projectListResponse.getProjectListResponse().get(0).getProjectName());
 
         myList = projectListResponse.getProjectListResponse();
+        Collections.reverse(myList);
         adapter = new ProjectListAdapter(myList,getActivity());
         recyclerView.setAdapter(adapter);
 
@@ -108,6 +110,7 @@ public class ProjectListFragment extends Fragment {
                 editor.putString("projectStatus",myList.get(position).getProjectStatus());
                 editor.putString("projectStartDate",myList.get(position).getProjStartDate());
                 editor.putString("projectEndDate",myList.get(position).getProjEndStart());
+
                 editor.commit();
 
                 Bundle bundle = new Bundle();

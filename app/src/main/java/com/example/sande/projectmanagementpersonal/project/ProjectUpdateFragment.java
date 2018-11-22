@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
@@ -62,6 +63,14 @@ public class ProjectUpdateFragment extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("MyFile",MODE_PRIVATE);
         String id = sharedPreferences.getString("projectId",null);
         Log.i(TAG, "onCreateView: " + id);
+        String pname = sharedPreferences.getString("projectName",null);
+        Log.i(TAG, "onCreateView: " + pname);
+
+        /*etProjectNamePU.setText(pname);
+        etProjectStatusPU.setText(sharedPreferences.getString("projectDesc",null));
+        etProjectDescPU.setText(sharedPreferences.getString("projectStatus",null));
+        etStartDatePU.setText(sharedPreferences.getString("projectStartDate",null));
+        etEndDatePU.setText(sharedPreferences.getString("projectEndDate",null));*/
 
         unbinder = ButterKnife.bind(this, view);
         return view;

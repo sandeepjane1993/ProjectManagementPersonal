@@ -1,5 +1,6 @@
 package com.example.sande.projectmanagementpersonal.assignteammembers;
 
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,8 +18,14 @@ import com.example.sande.projectmanagementpersonal.allviewmodels.AssignTaskViewM
 import com.example.sande.projectmanagementpersonal.databinding.AssignTaskBinding;
 import com.example.sande.projectmanagementpersonal.pojo.AssignTaskPOJO;
 
+import retrofit2.Retrofit;
+
+import static android.content.Context.MODE_PRIVATE;
+
 public class AssignTaskMember extends Fragment {
 
+    Retrofit retrofit;
+    SharedPreferences sharedPreferences;
     AssignTaskPOJO assignTaskPOJO;
     Button btn;
     EditText editText;
@@ -35,6 +42,8 @@ public class AssignTaskMember extends Fragment {
 
         AssignTaskViewModel viewModel = new AssignTaskViewModel(getActivity());
         binding.setViewModel(viewModel);
+        sharedPreferences = getActivity().getSharedPreferences("MyFile",MODE_PRIVATE);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +51,7 @@ public class AssignTaskMember extends Fragment {
 
                 viewModel.setUserId(editText.getText().toString());
                 viewModel.getResponse();
-                Toast.makeText(getActivity(), "" + viewModel.getResponse(), Toast.LENGTH_SHORT).show();
+
             }
         });
         return view;

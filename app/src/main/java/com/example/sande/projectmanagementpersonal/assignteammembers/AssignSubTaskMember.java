@@ -12,12 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sande.projectmanagementpersonal.MyApplication;
 import com.example.sande.projectmanagementpersonal.R;
 import com.example.sande.projectmanagementpersonal.network.ApiService;
+import com.example.sande.projectmanagementpersonal.project.ProjectListFragment;
 import com.example.sande.projectmanagementpersonal.responses.ProjectCreateResponse;
 import com.example.sande.projectmanagementpersonal.responses.ProjectListResponse;
+import com.example.sande.projectmanagementpersonal.subtask.SubTaskListFragment;
 
 import javax.inject.Inject;
 
@@ -78,6 +81,7 @@ public class AssignSubTaskMember extends Fragment {
         String subTaskId = sharedPreferences.getString("subTaskId",null);
         String projectId = sharedPreferences.getString("projectId",null);
         String memberId = idAssignsubtask.getText().toString();
+        Log.i(TAG, "onViewClicked: " + subTaskId);
         apiService = retrofit.create(ApiService.class);
         apiService.assignSubTaskToMember(taskId,subTaskId,projectId,memberId)
                 .subscribeOn(Schedulers.io())
@@ -87,6 +91,8 @@ public class AssignSubTaskMember extends Fragment {
 
     private void responseResult(ProjectCreateResponse projectCreateResponse) {
         Log.i(TAG, "responseResult: " + projectCreateResponse.getProjectCreateResponse().get(0));
+        Toast.makeText(getActivity(), "" + projectCreateResponse.getProjectCreateResponse().get(0) , Toast.LENGTH_SHORT).show();
+        getFragmentManager().beginTransaction().replace(R.id.container,new SubTaskListFragment()).addToBackStack("").commit();
     }
 
 

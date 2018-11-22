@@ -26,6 +26,7 @@ import com.example.sande.projectmanagementpersonal.responses.TaskListResponse;
 import com.example.sande.projectmanagementpersonal.subtask.SubTaskListFragment;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -90,7 +91,7 @@ public class TaskListFragment extends Fragment {
         Log.i(TAG, "responseResult: " + taskListResponse.getTaskListResponse().get(0).getTaskName());
 
         myList = taskListResponse.getTaskListResponse();
-
+        Collections.reverse(myList);
         adapter = new TaskListAdapter(myList,getActivity());
         recyclerView.setAdapter(adapter);
 

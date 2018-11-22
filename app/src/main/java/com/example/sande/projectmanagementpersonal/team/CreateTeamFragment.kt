@@ -1,9 +1,9 @@
 package com.example.sande.projectmanagementpersonal.team
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,6 @@ import android.widget.Spinner
 import com.example.sande.projectmanagementpersonal.R
 import com.example.sande.projectmanagementpersonal.pojo.EmployeePOJO
 import com.example.sande.projectmanagementpersonal.pojo.MemberOfSubtaskPOJO
-import kotlinx.android.synthetic.main.fragment_create_team.*
 import org.jetbrains.anko.support.v4.toast
 
 class CreateTeamFragment : Fragment(), EmployeeInterface, AdapterView.OnItemSelectedListener {
@@ -31,6 +30,8 @@ class CreateTeamFragment : Fragment(), EmployeeInterface, AdapterView.OnItemSele
 
     lateinit var button : Button
 
+    lateinit var sharePreference : SharedPreferences
+
     override fun onAttach(context: Context?) {
         employeeViewModel = EmployeeViewModel(this, context)
         super.onAttach(context)
@@ -41,6 +42,12 @@ class CreateTeamFragment : Fragment(), EmployeeInterface, AdapterView.OnItemSele
 
         employeeViewModel.initEmployeeList()
 
+        sharePreference = context!!.getSharedPreferences("MyFile", Context.MODE_PRIVATE)
+
+        val taskId  = sharePreference.getString("taskId", "")
+        val subTaskId  = sharePreference.getString("subTaskId", "")
+
+
         spinner = view.findViewById(R.id.sp_add_employee)
 
         projectId = arguments!!.getString("projectId");
@@ -48,7 +55,7 @@ class CreateTeamFragment : Fragment(), EmployeeInterface, AdapterView.OnItemSele
         button = view.findViewById(R.id.button)
 
         button.setOnClickListener {
-            employeeViewModel.addEmployee(employeeId, projectId)
+            employeeViewModel.addEmployee(projectId, employeeId, taskId,  subTaskId)
         }
 
         return view;

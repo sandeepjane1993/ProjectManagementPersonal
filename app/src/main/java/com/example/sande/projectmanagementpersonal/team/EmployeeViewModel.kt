@@ -20,8 +20,8 @@ class EmployeeViewModel(val generalEmployeeFragment : EmployeeInterface, context
         generalEmployeeFragment.getEmployeeList(employeeList)
     }
 
-    fun addEmployee(employeeId: String, projectId: String?) {
-        employeeRepository.addEmployee(employeeId, projectId)
+    fun addEmployee(projectId: String, employeeId: String, taskId: String, subTaskId: String) {
+        employeeRepository.addEmployee(projectId, employeeId, taskId, subTaskId)
     }
 
     fun showAddEmployeeInfo(info: String) {
