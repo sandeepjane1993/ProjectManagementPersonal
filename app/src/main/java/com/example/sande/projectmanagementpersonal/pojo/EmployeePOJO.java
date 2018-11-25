@@ -33,13 +33,7 @@ public class EmployeePOJO {
 
     @Override
     public String toString() {
-        return "empid='" + empid + '\'' +
-                ", empfirstname='" + empfirstname + '\'' +
-                ", emplastname='" + emplastname + '\'' +
-                ", empemail='" + empemail + '\'' +
-                ", empmobile='" + empmobile + '\'' +
-                ", empdesignation='" + empdesignation + '\'' +
-                ", dateofjoining='" + dateofjoining + '\'' ;
+        return "id = " + empid + ", name = " + empfirstname + " " + emplastname;
     }
 
     public String getEmpid() {
